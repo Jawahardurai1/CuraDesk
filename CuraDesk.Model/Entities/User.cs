@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace CuraDesk.Model.Entities
 {
     public class User
     {
+        [Key]
         public Guid UserId { get; set; } = Guid.NewGuid();
         public string UserName { get; set; } = "";
         public string PasswordHash { get; set; } = "";

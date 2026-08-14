@@ -5,9 +5,9 @@ using CuraDesk.Model.Entities;
 using Microsoft.EntityFrameworkCore;
 namespace CuraDesk.Data.Context
 {
-    public class AppDbcontext:DbContext
+    public class AppDbContext:DbContext
     {
-        public AppDbcontext(DbContextOptions<AppDbcontext>options):base(options)
+        public AppDbContext(DbContextOptions<AppDbContext>options):base(options)
         {
 
         }

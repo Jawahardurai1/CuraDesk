@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.ComponentModel.DataAnnotations;
 namespace CuraDesk.Model.Entities
 {
     public class PatientProfile
     {
+        [Key]
        public Guid PatientId { get; set; }= Guid.NewGuid();
        public Guid UserId { get; set; }
         public DateTime DateOfBirth { get; set; }

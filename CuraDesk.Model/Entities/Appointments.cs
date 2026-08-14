@@ -2,12 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.ComponentModel.DataAnnotations;
 namespace CuraDesk.Model.Entities
 {
     public class Appointments
     {
-
+        [Key]
         public Guid AppointmentId { get; set; } = Guid.NewGuid();
         public Guid PatientUserId { get; set; }
         public Guid DoctorId  { get; set; }

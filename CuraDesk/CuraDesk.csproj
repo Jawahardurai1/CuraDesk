@@ -13,10 +13,12 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\CuraDesk.Business\CuraDesk.Business.csproj" />
+    <ProjectReference Include="..\CuraDesk.Data\CuraDesk.Data.csproj" />
     <ProjectReference Include="..\CuraDesk.Model\CuraDesk.Model.csproj" />
     <ProjectReference Include="..\CuraDesk.Utility\CuraDesk.Utility.csproj" />
   </ItemGroup>
