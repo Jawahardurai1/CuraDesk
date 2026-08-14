@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="../CuraDesk.Business/CuraDesk.Business.csproj" />
+  <Project Path="../CuraDesk.Data/CuraDesk.Data.csproj" />
+  <Project Path="../CuraDesk.Model/CuraDesk.Model.csproj" />
+  <Project Path="../CuraDesk.Utility/CuraDesk.Utility.csproj" />
+  <Project Path="CuraDesk.csproj" />
+</Solution>
