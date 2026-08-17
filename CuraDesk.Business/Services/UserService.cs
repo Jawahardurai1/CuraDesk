@@ -18,7 +18,7 @@ namespace CuraDesk.Business.Services
         }
         public async Task<UserResponseDto?> AddUserAsync(CreateUserDto userDto)
         {
-            var ExistingUser=await  _userRepository.GetUserByIdAsync(userDto.EmailId);
+            var ExistingUser=await  _userRepository.GetUserByEmailIdAsync(userDto.EmailId);
             if (ExistingUser != null) { return null; }
 
             var user = new User

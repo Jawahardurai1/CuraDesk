@@ -13,7 +13,7 @@ namespace CuraDesk.Controllers
             _userService = userService;
 
         }
-        [HttpPost]
+        [HttpPost("register")]
         public async Task<IActionResult> CreateUser(CreateUserDto Dto)
         {
             var result = await _userService.AddUserAsync(Dto);
@@ -24,5 +24,7 @@ namespace CuraDesk.Controllers
             return StatusCode(201, result);
 
         }
+
+
     }
 }

@@ -16,6 +16,7 @@ namespace CuraDesk.Data.Context
         public DbSet<DoctorAvailability> DoctorAvailability { get; set; }
         public DbSet<MedicalReport>MedicalReports { get; set; }
         public DbSet<PatientProfile> PatientProfiles { get; set; }
+        public DbSet<DoctorProfile> DoctorProfiles { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

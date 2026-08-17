@@ -1,10 +1,11 @@
 ﻿using CuraDesk.Business.Dto;
 using CuraDesk.Business.Interface.Repository;
 using CuraDesk.Data.Context;
-using System;
 using CuraDesk.Model.Entities;
 using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using System.Text;
 
 namespace CuraDesk.Data.Repositories
@@ -26,14 +27,18 @@ namespace CuraDesk.Data.Repositories
 
 
         }
-        public async Task<User?> GetUserByIdAsync(string Eid)
+        public async Task<User?> GetUserByEmailIdAsync(string Eid)
         {
             var user = await _dbcontext.Users.FirstOrDefaultAsync(e => e.EmailId == Eid);
             if (user == null) return null;
             return user;
 
-
-
+        }
+       public async Task<User?> GetUserByIdAsync(Guid Id)
+        {
+            var user = await _dbcontext.Users.FirstOrDefaultAsync(e => e.UserId == Id);
+            if (user == null) return null;
+            return user;
         }
     }
 }

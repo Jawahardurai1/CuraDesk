@@ -8,6 +8,7 @@ namespace CuraDesk.Business.Interface.Repository
     public  interface IUserRepository
     {
          Task<User?> CreateUserAsync(User user);
-        Task<User?>GetUserByIdAsync(string Eid);
+        Task<User?>GetUserByEmailIdAsync(string Eid);
+        Task<User?> GetUserByIdAsync(Guid Id);
     }
 }
