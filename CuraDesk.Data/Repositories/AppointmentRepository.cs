@@ -18,9 +18,12 @@ namespace CuraDesk.Data.Repositories
 
         public async Task<Appointments?> GetByIdAsync(Guid appointmentId)
         {
-            return await _context.Appointments.FindAsync(appointmentId);
+            return await _context.Appointments
+                .Include(a => a.Patient)
+                .Include(a => a.Doctor)
+                .Include(a => a.Availability)
+                .FirstOrDefaultAsync(a => a.AppointmentId == appointmentId);
         }
-
         public async Task<List<Appointments>> GetByPatientIdAsync(Guid patientUserId)
         {
             return await _context.Appointments.Where(a => a.PatientUserId == patientUserId).OrderByDescending(a => a.AppointmentDate).ToListAsync();

@@ -39,14 +39,15 @@ namespace CuraDesk.Business.Services
         {
             var profile = await _patientProfileRepository.GetPatientProfileAsync(patientUserId);
             if (profile == null)
-                return null;
+                throw new Exception($"Patient profile not found for UserId: {patientUserId}");
 
             var slot = await _availabilityRepository.GetByIdAsync(dto.AvailabilityId);
+
             if (slot == null)
-                return null;
+                throw new Exception($"Availability slot not found for ID: {dto.AvailabilityId}");
 
             if (slot.isBooked)
-                return null;
+                throw new Exception($"Availability slot {dto.AvailabilityId} is already booked");
             var appointment = new Appointments
             {
                 PatientUserId = patientUserId,
@@ -60,8 +61,14 @@ namespace CuraDesk.Business.Services
             slot.isBooked = true;
             await _appointmentRepository.AddAsync(appointment);
             await _appointmentRepository.SaveChangesAsync();
+            if (profile.User == null)
+                throw new Exception("Patient profile exists, but User is null.");
 
-            await _emailService.SendEmailAsync(profile.User.EmailId, "CuraDesk-Appointment Request", "Your Booking Appointment was Requested Successfully,Kindly check your email for the further assistance and the conformation of the Appointment");
+            await _emailService.SendEmailAsync(
+                profile.User.EmailId,
+                "CuraDesk-Appointment Request",
+                "Your Booking Appointment was Requested Successfully. Kindly check your email for further assistance and confirmation of the Appointment."
+            );
             return await MapToDtoAsync(appointment, slot.StartTime);
         }
         public async Task<List<AppointmentResponseDto>> GetMyAppointmentsAsPatientAsync(Guid patientUserId)
@@ -78,25 +85,52 @@ namespace CuraDesk.Business.Services
             return result;
         }
 
-        public async Task<AppointmentResponseDto?>UpdateAcceptance(Guid AppointmentId)
+        public async Task<AppointmentResponseDto?> UpdateAcceptance(Guid appointmentId)
         {
-            var appointments = await _appointmentRepository.GetByIdAsync(AppointmentId);
-            if (appointments == null) { return null; }
-            
-            if (appointments.Status != AppointmentStatus.Requested)
-                return null;
-            appointments.Status = AppointmentStatus.Accepted;
-         await _appointmentRepository.SaveChangesAsync();
+            var appointment = await _appointmentRepository.GetByIdAsync(appointmentId);
 
-            var slots = await _availabilityRepository.GetByIdAsync(appointments.AvailabilityId);
-            if (slots == null) { return null; }
-            if (slots.isBooked) { return null; }
-  
-            slots.isBooked = true;
-            await _appointmentRepository.AddAsync(appointments);
+            if (appointment == null)
+                throw new Exception($"Appointment not found: {appointmentId}");
+
+            if (appointment.Status != AppointmentStatus.Requested)
+                throw new Exception(
+              $"Appointment status is {appointment.Status}, expected Requested.");
+            if (appointment.Patient == null)
+                throw new Exception("Appointment.Patient is null.");
+
+            if (appointment.Doctor == null)
+                throw new Exception("Appointment.Doctor is null.");
+
+            if (appointment.Availability == null)
+                throw new Exception("Appointment.Availability is null.");
+
+            if (appointment.Patient.PhoneNumber == null)
+                throw new Exception("Patient phone number is null.");
+
+            if (appointment.Doctor.UserName == null)
+                throw new Exception("Doctor username is null.");
+
+            appointment.Status = AppointmentStatus.Accepted;
+
             await _appointmentRepository.SaveChangesAsync();
-            await _emailService.SendEmailAsync(appointments.Patient.EmailId, "CuraDesk-Appointment Follow up", "Appointment booked successfully! You will receive a confirmation email with the appointment details shortly.");
-            return await MapToDtoAsync(appointments, slots.StartTime);
+
+            await _voiceNotificationService.SendAppointmentConfirmationCallAsync(
+                appointment.Patient.PhoneNumber,
+                appointment.Doctor.UserName,
+                appointment.AppointmentDate.ToString("dd-MM-yyyy"),
+                appointment.Availability.StartTime.ToString(@"hh\:mm")
+            );
+
+            await _emailService.SendEmailAsync(
+                appointment.Patient.EmailId,
+                "CuraDesk-Appointment Confirmation",
+                "Your appointment has been accepted successfully."
+            );
+
+            return await MapToDtoAsync(
+                appointment,
+                appointment.Availability.StartTime
+            );
         }
         public async Task<UpdateRejectResponseDto?> UpdateRejected(Guid AppointmentId)
         {

@@ -30,6 +30,7 @@ namespace CuraDesk.Business.Services
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(userDto.Password),
                 EmailId = userDto.EmailId,
                 Role = userDto.Role,
+                PhoneNumber= userDto.PhoneNumber,
             };
             await _userRepository.CreateUserAsync(user);
 
@@ -45,6 +46,7 @@ namespace CuraDesk.Business.Services
                 FullName = user.UserName,
                 Email = user.EmailId,
                 Role= user.Role,
+                PhoneNumber= user.PhoneNumber,
                 UserId = user.UserId,
                 CreatedAt=user.CreatedAt
                

@@ -18,8 +18,9 @@ namespace CuraDesk.Data.Repositories
         }
         public async Task<PatientProfile?> GetPatientProfileAsync(Guid UserId)
         {
-          return  await _appDbContext.PatientProfiles.FirstOrDefaultAsync(p => p.UserId == UserId);
-
+            return await _appDbContext.PatientProfiles
+                .Include(p => p.User)
+                .FirstOrDefaultAsync(p => p.UserId == UserId);
         }
         public async Task AddAsync(PatientProfile profile)
         {

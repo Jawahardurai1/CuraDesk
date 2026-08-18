@@ -17,26 +17,20 @@ namespace CuraDesk.Utility.Voice
         }
 
         public async Task<string> SendAppointmentConfirmationCallAsync(
-            string patientPhoneNumber,
-            string doctorName,
-            string appointmentDate,
-            string appointmentTime)
+      string patientPhoneNumber,
+      string doctorName,
+      string appointmentDate,
+      string appointmentTime)
         {
             TwilioClient.Init(
                 _settings.AccountSid,
                 _settings.AuthToken);
 
-            var message =
-                $"Hello. Your CuraDesk appointment with {doctorName} " +
-                $"has been confirmed for {appointmentDate} at {appointmentTime}. " +
-                $"Thank you for using CuraDesk.";
-
             var call = await CallResource.CreateAsync(
                 to: new PhoneNumber(patientPhoneNumber),
                 from: new PhoneNumber(_settings.PhoneNumber),
-                twiml: new Twilio.TwiML.VoiceResponse()
-                    .Say(message)
-                    .ToString()
+                url: new Uri(
+                    "https://webhooks.twilio.com/v1/Voice/Template/voice_text_to_speech")
             );
 
             return call.Sid;
