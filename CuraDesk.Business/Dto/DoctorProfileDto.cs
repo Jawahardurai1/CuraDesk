@@ -20,6 +20,7 @@ namespace CuraDesk.Business.Dto
         public string Specialization { get; set; } = string.Empty;
         public string Qualification { get; set; } = string.Empty;
         public int YearsOfExperience { get; set; }
+        public bool isBooked { get; set; }
      
     }
 }

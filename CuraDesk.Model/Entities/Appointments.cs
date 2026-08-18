@@ -16,10 +16,15 @@ namespace CuraDesk.Model.Entities
         public AppointmentStatus Status { get; set; }= AppointmentStatus.Requested;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime? UpdatedAt { get; set; }
+        public string Notes { get; set; }=string.Empty;
         public DoctorAvailability? Availability { get; set; }
         public User? Patient { get; set; }
         public User? Doctor { get; set; }
 
 
     }
+
+   
+
+   
 }

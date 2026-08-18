@@ -9,6 +9,7 @@ namespace CuraDesk.Model.Entities
         [Key]
         public Guid MReportId { get; set; } = Guid.NewGuid();
         public Guid PatientUserId { get; set; }
+        public Guid? AppointmentId { get; set; }
         public string FileName { get; set; } = "";
         public string FilePath { get; set; } = "";
         public string DiagnosisTag { get; set; } = string.Empty;

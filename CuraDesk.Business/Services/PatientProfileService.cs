@@ -12,15 +12,17 @@ namespace CuraDesk.Business.Services
     {
         private readonly IPatientProfileRepository repository;
         private readonly IUserRepository userRepository;
-        public PatientProfileService(IPatientProfileRepository patientProfileRepository, IUserRepository userRepository )
+        private readonly IAppointmentRepository appointmentRepository;
+        public PatientProfileService(IPatientProfileRepository patientProfileRepository, IUserRepository _userRepository ,IAppointmentRepository _appointmentRepository)
         {
             repository = patientProfileRepository;
-            userRepository = userRepository;
+            userRepository = _userRepository;
+            appointmentRepository = _appointmentRepository;
         }
         public async Task<PatientProfileResponseDto?> CreateProfileAsync(Guid userId, CreatePatientProfileDto dto)
         {
             var user = await userRepository.GetUserByIdAsync(userId);
-            if(user==null | user.Role!="Patient")
+            if(user==null || user.Role!="Patient")
             {
                 return null;
             }
@@ -69,7 +71,16 @@ namespace CuraDesk.Business.Services
 
 
         }
+        public async Task<PatientProfileResponseDto?> GetProfileForDoctorAsync(Guid doctorUserId, Guid patientUserId)
+        {
+            bool hasAppointment = await appointmentRepository.DoctorHasAppointmentWithPatientAsync(doctorUserId, patientUserId);
+            if (!hasAppointment)
+                return null;  
 
+            var profile = await repository.GetPatientProfileAsync(patientUserId);
+            return profile == null ? null : await MapToDtoAsync(profile);
+
+        }
 
         private async Task<PatientProfileResponseDto?>MapToDtoAsync(PatientProfile profile)
         {

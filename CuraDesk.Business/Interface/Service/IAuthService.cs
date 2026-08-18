@@ -8,5 +8,6 @@ namespace CuraDesk.Business.Interface.Service
     public  interface IAuthService
     {
         Task<AuthResponseDto?> LoginAsync(LoginDto dto);
+        Task<ResponseDto?>  ResetPasswordAsync(PassworResetDto dto);
     }
 }

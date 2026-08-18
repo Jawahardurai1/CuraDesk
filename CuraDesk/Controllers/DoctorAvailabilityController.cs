@@ -28,7 +28,7 @@ namespace CuraDesk.Controllers
 
             return StatusCode(201,res);
         }
-        [Authorize]
+        [Authorize(Roles = "Patient")]
         [HttpGet("{doctorId}/availability")]
         public async Task<IActionResult> GetDoctorAvailability(Guid doctorId)
         {

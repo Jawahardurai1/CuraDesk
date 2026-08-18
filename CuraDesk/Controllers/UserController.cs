@@ -1,5 +1,6 @@
 ﻿using CuraDesk.Business.Dto;
 using CuraDesk.Business.Interface.Service;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 namespace CuraDesk.Controllers
 {
@@ -13,6 +14,8 @@ namespace CuraDesk.Controllers
             _userService = userService;
 
         }
+
+        [Authorize(Roles ="Admin")]
         [HttpPost("register")]
         public async Task<IActionResult> CreateUser(CreateUserDto Dto)
         {

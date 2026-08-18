@@ -1,9 +1,13 @@
+using CloudinaryDotNet;
 using CuraDesk.Business.Interface.Repository;
 using CuraDesk.Business.Interface.Service;
 using CuraDesk.Business.Services;
 using CuraDesk.Data.Context;
 using CuraDesk.Data.Repositories;
-
+using CuraDesk.Utility.Voice;
+using CuraDesk.Business.Interface.Service;
+using CuraDesk.Business.Services;
+using CuraDesk.Utility.Email;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -45,16 +49,43 @@ builder.Services.AddDbContext<AppDbContext>(options =>
         builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 
+builder.Services.Configure<EmailSettings>(
+    builder.Configuration.GetSection("SmtpSettings"));
+
+builder.Services.AddScoped<IEmailService, EmailService>();
+
+
+builder.Services.Configure<TwilioSetting>(
+    builder.Configuration.GetSection("Twilio"));
+
+builder.Services.AddScoped<
+    IVoiceNotificationService,
+    VoiceNotificationService>();
+
 // Dependency Injection
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IAuthService, AuthService>();
+
+
 builder.Services.AddScoped<IPatientProfileService, PatientProfileService>();
 builder.Services.AddScoped<IPatientProfileRepository, PatientProfileRepository>();
+
+
 builder.Services.AddScoped<IDoctorAvailabilityRepository, DoctorAvailabilityRepository>();
 builder.Services.AddScoped<IDoctorAvailabilityService, DoctorAvailabilityService>();
+
+
 builder.Services.AddScoped<IDoctorProfileRepository, DoctorProfileRepository>();
 builder.Services.AddScoped<IDoctorProfile, DoctorProfileService>();
+
+builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+builder.Services.AddScoped<IAppointmentService, AppointmentService>();
+
+builder.Services.AddScoped<IMedicalReportRepository, MedicalReportRepository>();
+builder.Services.AddScoped<IMedicalReportService, MedicalReportService>();
+
+builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
 
 // JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -77,6 +108,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             )
         };
     });
+
 
 var app = builder.Build();
 

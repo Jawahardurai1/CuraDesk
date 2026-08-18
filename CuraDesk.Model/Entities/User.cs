@@ -13,7 +13,7 @@ namespace CuraDesk.Model.Entities
         public string PasswordHash { get; set; } = "";
         public string EmailId { get; set; } = "";
         public string Role { get; set; } = "";
-
+        public bool isFirstLogin { get; set; } = false;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
     }
 }

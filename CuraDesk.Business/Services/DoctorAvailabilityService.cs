@@ -48,7 +48,7 @@ namespace CuraDesk.Business.Services
             return res;
         }
 
-        private async Task<AvailabilityResponseDto?> MaptoDto(DoctorAvailability availability)
+        private async Task<AvailabilityResponseDto> MaptoDto(DoctorAvailability availability)
         {
             var doc = await _userRepository.GetUserByIdAsync(availability.DoctorUserId);
             return new AvailabilityResponseDto

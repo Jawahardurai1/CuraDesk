@@ -34,11 +34,26 @@ namespace CuraDesk.Data.Repositories
             return user;
 
         }
-       public async Task<User?> GetUserByIdAsync(Guid Id)
+        public async Task<User?> GetUserByIdAsync(Guid Id)
         {
             var user = await _dbcontext.Users.FirstOrDefaultAsync(e => e.UserId == Id);
             if (user == null) return null;
             return user;
+        }
+        public async Task<bool> UpdatePasswordAsync(Guid userId, string passwordHash)
+        {
+            var user = await _dbcontext.Users
+                .FirstOrDefaultAsync(u => u.UserId == userId);
+
+            if (user == null )
+                return false;
+
+            user.PasswordHash = passwordHash;
+            user.isFirstLogin = true;
+
+            await _dbcontext.SaveChangesAsync();
+
+            return true;
         }
     }
 }

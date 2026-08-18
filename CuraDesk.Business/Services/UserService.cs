@@ -6,15 +6,18 @@ using CuraDesk.Model.Entities;
 using System.Collections.Generic;
 using System.Text;
 using BCrypt.Net;
+using CuraDesk.Utility.Email;
 
 namespace CuraDesk.Business.Services
 {
     public class UserService:IUserService
     {
         private readonly IUserRepository _userRepository;
-        public UserService( IUserRepository userRepository)
+        private readonly IEmailService emailService;
+        public UserService( IUserRepository userRepository ,IEmailService email )
         {
             _userRepository = userRepository;
+            emailService = email;
         }
         public async Task<UserResponseDto?> AddUserAsync(CreateUserDto userDto)
         {
@@ -29,6 +32,8 @@ namespace CuraDesk.Business.Services
                 Role = userDto.Role,
             };
             await _userRepository.CreateUserAsync(user);
+            await emailService.SendEmailAsync(user.EmailId, "CuraDesk - Temporary Password", $"Your temporary password is: {userDto.Password}" +
+                $"Kindly Login through the temporary Password and change Password before Usage of the application "); ;
             return MaptoDto(user);
 
         }

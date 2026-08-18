@@ -10,5 +10,6 @@ namespace CuraDesk.Business.Interface.Repository
          Task<User?> CreateUserAsync(User user);
         Task<User?>GetUserByEmailIdAsync(string Eid);
         Task<User?> GetUserByIdAsync(Guid Id);
+        Task<bool> UpdatePasswordAsync(Guid userId, string passwordHash);
     }
 }

@@ -52,5 +52,16 @@ namespace CuraDesk.Controllers
             return Ok(result);
         }
 
+        [Authorize(Roles = "Doctor")]
+        [HttpGet("{patientUserId}")]
+        public async Task<IActionResult> GetPatientProfileForDoctor(Guid patientUserId)
+        {
+            var result = await _profileService.GetProfileForDoctorAsync(CurrentUserId, patientUserId);
+            if (result == null)
+                return Forbid();  
+
+            return Ok(result);
+        }
+
     }
 }

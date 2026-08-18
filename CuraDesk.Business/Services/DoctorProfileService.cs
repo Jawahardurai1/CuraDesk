@@ -12,11 +12,14 @@ namespace CuraDesk.Business.Services
     public class DoctorProfileService : IDoctorProfile
     {
         private readonly IDoctorProfileRepository _repository;
+        private readonly IDoctorAvailabilityRepository _availabilityRepository;
         private readonly IUserRepository _userRepository;
-        public DoctorProfileService(IDoctorProfileRepository repository, IUserRepository userRepository)
+        public DoctorProfileService(IDoctorProfileRepository repository, IUserRepository userRepository,IDoctorAvailabilityRepository doctorAvailabilityRepository)
         {
             _repository = repository;
             _userRepository = userRepository;
+            _availabilityRepository = doctorAvailabilityRepository;
+
         }
         public async Task<DoctorProfileResponseDto?> CreateProfileAsync(Guid userId, CreateDoctorProfileDto dto)
         {
@@ -41,7 +44,7 @@ namespace CuraDesk.Business.Services
             return await MapToDtoAsync(profile);
         }
 
-        public async Task<List<DoctorProfileResponseDto>> GetAllDoctorsAsync()
+        public async Task<List<DoctorProfileResponseDto?>> GetAllDoctorsAsync()
         {
             var profiles = await _repository.GetAllAsync();
 
@@ -78,6 +81,7 @@ namespace CuraDesk.Business.Services
         private async Task<DoctorProfileResponseDto?> MapToDtoAsync(DoctorProfile profile)
         {
             var user = await _userRepository.GetUserByIdAsync(profile.UserId);
+           
             return new DoctorProfileResponseDto
             {
                 DoctorProfileId = profile.DoctorProfileId,
@@ -87,6 +91,7 @@ namespace CuraDesk.Business.Services
                 Specialization = profile.Specialization,
                 Qualification = profile.Qualification,
                 YearsOfExperience = profile.YearsOfExperience,
+                
 
             };
         }
