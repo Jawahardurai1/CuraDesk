@@ -87,6 +87,11 @@ builder.Services.AddScoped<IMedicalReportService, MedicalReportService>();
 
 builder.Services.AddScoped<ICloudinaryService, CloudinaryService>();
 
+
+builder.Services.AddScoped<IEmailService, EmailService>();
+
+builder.Services.AddScoped<IVoiceNotificationService, VoiceNotificationService>();
+
 // JWT Authentication
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
     .AddJwtBearer(options =>

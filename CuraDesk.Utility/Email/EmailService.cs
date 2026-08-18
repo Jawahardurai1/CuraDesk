@@ -2,11 +2,10 @@
 using MailKit.Security;
 using Microsoft.Extensions.Options;
 using MimeKit;
-using CuraDesk.Utility.Email;
+
 namespace CuraDesk.Utility.Email
 {
-   
-     public class EmailService : IEmailService
+    public class EmailService : IEmailService
     {
         private readonly EmailSettings _emailSettings;
 
@@ -16,9 +15,9 @@ namespace CuraDesk.Utility.Email
         }
 
         public async Task SendEmailAsync(
-     string receiverEmail,
-     string subject,
-     string message)
+            string receiverEmail,
+            string subject,
+            string message)
         {
             try
             {
@@ -49,6 +48,16 @@ namespace CuraDesk.Utility.Email
 
                 Console.WriteLine("SMTP connected");
 
+                Console.WriteLine(
+                    $"SenderEmail: {_emailSettings.SenderEmail}");
+
+                Console.WriteLine(
+                    $"Password exists: {!string.IsNullOrWhiteSpace(_emailSettings.Password)}");
+
+                Console.WriteLine(
+                    $"Password length: {_emailSettings.Password?.Length}");
+
+                // Authenticate ONLY ONCE
                 await smtpClient.AuthenticateAsync(
                     _emailSettings.SenderEmail,
                     _emailSettings.Password);
@@ -70,4 +79,3 @@ namespace CuraDesk.Utility.Email
         }
     }
 }
-

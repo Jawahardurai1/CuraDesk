@@ -32,6 +32,7 @@ namespace CuraDesk.Business.Services
                 Role = userDto.Role,
             };
             await _userRepository.CreateUserAsync(user);
+
             await emailService.SendEmailAsync(user.EmailId, "CuraDesk - Temporary Password", $"Your temporary password is: {userDto.Password}" +
                 $"Kindly Login through the temporary Password and change Password before Usage of the application "); ;
             return MaptoDto(user);
