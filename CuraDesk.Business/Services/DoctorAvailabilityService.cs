@@ -5,6 +5,8 @@ using CuraDesk.Model.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using CuraDesk.Exceptions;
+using CuraDesk.Business.Exceptions;
 
 namespace CuraDesk.Business.Services
 {
@@ -21,7 +23,7 @@ namespace CuraDesk.Business.Services
 
         public async Task<AvailabilityResponseDto?> AddAvailabilityAsync(Guid doctorUserId, CreateDoctorAvailabilityDto dto)
         {
-            if(dto.EndTime<=dto.StartTime) { return null; }
+            if(dto.EndTime<=dto.StartTime) { throw new TimeMissMatchException("Please Enter the Valid Time Line"); }
             var availability = new DoctorAvailability
             {
                 DoctorUserId = doctorUserId,
@@ -51,6 +53,7 @@ namespace CuraDesk.Business.Services
         private async Task<AvailabilityResponseDto> MaptoDto(DoctorAvailability availability)
         {
             var doc = await _userRepository.GetUserByIdAsync(availability.DoctorUserId);
+            if (doc == null) { throw new NotFoundException("Doctor Not Founded!"); }
             return new AvailabilityResponseDto
             {
                 AvailabilityId = availability.DoctorAvailabilityId,

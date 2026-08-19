@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using Twilio;
 using Twilio.Rest.Api.V2010.Account;
+using Twilio.TwiML;
 using Twilio.Types;
 
 
@@ -25,6 +26,12 @@ namespace CuraDesk.Utility.Voice
             TwilioClient.Init(
                 _settings.AccountSid,
                 _settings.AuthToken);
+            var response = new VoiceResponse();
+
+            response.Say(
+                "Hello. Your appointment with the doctor has been successfully booked. Thank you for using CuraDesk.",
+                language: "en-US"
+            );
 
             var call = await CallResource.CreateAsync(
                 to: new PhoneNumber(patientPhoneNumber),

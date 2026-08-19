@@ -1,6 +1,8 @@
 ﻿using CuraDesk.Business.Dto;
+using CuraDesk.Business.Exceptions;
 using CuraDesk.Business.Interface.Repository;
 using CuraDesk.Business.Interface.Service;
+using CuraDesk.Exceptions;
 using CuraDesk.Utility.Email;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -30,12 +32,12 @@ namespace CuraDesk.Business.Services
         {
             var user = await _userRepository.GetUserByEmailIdAsync(dto.Email);
 
-            if (user == null) { return null; }
+            if (user == null) { throw new NotFoundException("User not found"); }
            
 
             bool ValidatePassword = BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash);
 
-            if (!ValidatePassword) { return null; }
+            if (!ValidatePassword) { throw new PasswordMisMatchException("Verify the Entered Password"); }
             if (!user.isFirstLogin)
             {
                 return new AuthResponseDto
@@ -63,13 +65,17 @@ namespace CuraDesk.Business.Services
         public async Task<ResponseDto?> ResetPasswordAsync(PassworResetDto dto)
         {
             var user = await _userRepository.GetUserByEmailIdAsync(dto.MailId);
-            if (user == null) { return null; }
-            if(dto.NewPassword!=dto.ConfirmPassword) { return null; }
+            if (user == null) { throw new NotFoundException($"User not found"); }
+
+            if(dto.NewPassword!=dto.ConfirmPassword) { throw new PasswordMisMatchException($"Verify the entered password"); }
+
             bool ValidatePassword = BCrypt.Net.BCrypt.Verify(dto.OldPassword, user.PasswordHash);
-            if (!ValidatePassword) { return null; }
+            if (!ValidatePassword) { throw new PasswordMisMatchException($"Verify the entered password"); }
+
             string newPasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.NewPassword);
+
             bool updatepass =await  _userRepository.UpdatePasswordAsync(user.UserId, newPasswordHash);
-            if (!updatepass) { return null; }
+            if (!updatepass) { throw new NotFoundException($"User not found"); }
 
             await _emailService.SendEmailAsync(user.EmailId, "CuraDesk - Reset Password Successful","Password Changed Sucessfully!");
             return new ResponseDto

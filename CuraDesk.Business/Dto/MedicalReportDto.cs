@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
+using System.ComponentModel.DataAnnotations;
 
 namespace CuraDesk.Model.DTOs
 {
     public class UploadReportMetadataDto
     {
+        [Required]
         public IFormFile File { get; set; } = null!;
         public Guid? AppointmentId { get; set; }
         public string DiagnosisTag { get; set; } = string.Empty;

@@ -47,7 +47,7 @@ namespace CuraDesk.Controllers
             return Ok(result);
         }
         [Authorize]
-        [HttpGet("{id}/download")]
+        [HttpGet("{id}/view")]
         public async Task<IActionResult> Download(Guid id)
         {
             var report = await _reportService.GetReportForAccessCheckAsync(CurrentUserId, CurrentRole, id);

@@ -1,11 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using CuraDesk.Business.Dto;
+﻿using CuraDesk.Business.Dto;
+using CuraDesk.Business.Exceptions;
 using CuraDesk.Business.Interface;
 using CuraDesk.Business.Interface.Repository;
 using CuraDesk.Business.Interface.Service;
+using CuraDesk.Exceptions;
 using CuraDesk.Model.Entities;
+using System;
+using System.Collections.Generic;
+using System.Text;
 namespace CuraDesk.Business.Services
 {
     public class PatientProfileService:IPatientProfileService
@@ -24,10 +26,10 @@ namespace CuraDesk.Business.Services
             var user = await userRepository.GetUserByIdAsync(userId);
             if(user==null || user.Role!="Patient")
             {
-                return null;
+                throw new NotFoundException("User nor found or Authorization for this role is denied"); 
             }
             var ExistingProfile=await repository.GetPatientProfileAsync(userId);
-            if(ExistingProfile!=null) { return null; }
+            if(ExistingProfile!=null) { throw new AlreadyExistsException("The Profile already Exists"); }
 
 
             var profile = new PatientProfile
@@ -55,7 +57,7 @@ namespace CuraDesk.Business.Services
         public async Task<PatientProfileResponseDto?> UpdateProfileAsync(Guid userId, UpdatePatientProfileDto dto)
         {
             var profile = await repository.GetPatientProfileAsync(userId);
-            if(profile==null) { return null; }
+            if(profile==null) { throw new NotFoundException("Profile Not Found Execption "); }
             
             profile.EmergencyContactPhone = dto.EmergencyContactPhone;
             profile.EmergencyContactName = dto.EmergencyContactName;
@@ -75,7 +77,7 @@ namespace CuraDesk.Business.Services
         {
             bool hasAppointment = await appointmentRepository.DoctorHasAppointmentWithPatientAsync(doctorUserId, patientUserId);
             if (!hasAppointment)
-                return null;  
+                 throw new NotFoundException("Doctor has no appointment with this patient "); ;  
 
             var profile = await repository.GetPatientProfileAsync(patientUserId);
             return profile == null ? null : await MapToDtoAsync(profile);
@@ -89,8 +91,8 @@ namespace CuraDesk.Business.Services
             {
                 PatientProfileId = profile.PatientId,
                 UserId = profile.UserId,
-                FullName = user.UserName,
-                Email = user.EmailId,
+                FullName = user?.UserName ?? string.Empty,
+                Email = user?.EmailId ?? string.Empty,
                 DateOfBirth = profile.DateOfBirth,
                 Gender = profile.Gender,
                 BloodGroup = profile.BloodGroup,

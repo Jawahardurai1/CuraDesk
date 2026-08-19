@@ -2,12 +2,15 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.ComponentModel.DataAnnotations;
 namespace CuraDesk.Business.Dto
 {
     public class BookAppointmentDto
     {
+        [Required]
         public Guid AvailabilityId { get; set; }
+        [Required]
+        [MinLength(3)]
         public string Notes { get; set; } = string.Empty;
     }
     public class AppointmentResponseDto

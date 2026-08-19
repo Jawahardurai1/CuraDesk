@@ -1,6 +1,8 @@
 ﻿using CuraDesk.Business.Dto;
+using CuraDesk.Business.Exceptions;
 using CuraDesk.Business.Interface.Repository;
 using CuraDesk.Business.Interface.Service;
+using CuraDesk.Exceptions;
 using CuraDesk.Model.Entities;
 using CuraDesk.Model.Enums;
 using CuraDesk.Utility.Email;
@@ -39,15 +41,15 @@ namespace CuraDesk.Business.Services
         {
             var profile = await _patientProfileRepository.GetPatientProfileAsync(patientUserId);
             if (profile == null)
-                throw new Exception($"Patient profile not found for UserId: {patientUserId}");
+                throw new NotFoundException($"Patient profile not found for UserId: {patientUserId}");
 
             var slot = await _availabilityRepository.GetByIdAsync(dto.AvailabilityId);
 
             if (slot == null)
-                throw new Exception($"Availability slot not found for ID: {dto.AvailabilityId}");
+                throw new NotFoundException($"Availability slot not found for ID: {dto.AvailabilityId}");
 
             if (slot.isBooked)
-                throw new Exception($"Availability slot {dto.AvailabilityId} is already booked");
+                throw new AlreadyExistsException($"Availability slot {dto.AvailabilityId} is already booked");
             var appointment = new Appointments
             {
                 PatientUserId = patientUserId,
@@ -62,7 +64,7 @@ namespace CuraDesk.Business.Services
             await _appointmentRepository.AddAsync(appointment);
             await _appointmentRepository.SaveChangesAsync();
             if (profile.User == null)
-                throw new Exception("Patient profile exists, but User is null.");
+                throw new AlreadyExistsException("Patient profile exists, but User is null.");
 
             await _emailService.SendEmailAsync(
                 profile.User.EmailId,
@@ -90,25 +92,25 @@ namespace CuraDesk.Business.Services
             var appointment = await _appointmentRepository.GetByIdAsync(appointmentId);
 
             if (appointment == null)
-                throw new Exception($"Appointment not found: {appointmentId}");
+                throw new NotFoundException($"Appointment not found: {appointmentId}");
 
             if (appointment.Status != AppointmentStatus.Requested)
                 throw new Exception(
               $"Appointment status is {appointment.Status}, expected Requested.");
             if (appointment.Patient == null)
-                throw new Exception("Appointment.Patient is null.");
+                throw new NotFoundException("Appointment.Patient is null.");
 
             if (appointment.Doctor == null)
-                throw new Exception("Appointment.Doctor is null.");
+                throw new NotFoundException("Appointment.Doctor is null.");
 
             if (appointment.Availability == null)
-                throw new Exception("Appointment.Availability is null.");
+                throw new NotFoundException("Appointment.Availability is null.");
 
             if (appointment.Patient.PhoneNumber == null)
-                throw new Exception("Patient phone number is null.");
+                throw new NotFoundException("Patient phone number is null.");
 
             if (appointment.Doctor.UserName == null)
-                throw new Exception("Doctor username is null.");
+                throw new NotFoundException("Doctor username is null.");
 
             appointment.Status = AppointmentStatus.Accepted;
 
@@ -146,7 +148,7 @@ namespace CuraDesk.Business.Services
           
             await _appointmentRepository.AddAsync(appointments);
             await _appointmentRepository.SaveChangesAsync();
-            
+            if(appointments.Patient==null) { throw new  NotFoundException("Patient not Found!"); }
             await _emailService.SendEmailAsync(appointments.Patient.EmailId, "CuraDesk-Appointment Follow up", "Your appointment request has been rejected. You will receive an email with the appointment details and rejection information shortly.");
             return await MapToDtoRejectAsync(appointments);
 
@@ -175,7 +177,7 @@ namespace CuraDesk.Business.Services
             return result;
         }
 
-        private async Task<AppointmentResponseDto?> MapToDtoAsync(Appointments appt, TimeSpan startTime)
+        private async Task<AppointmentResponseDto> MapToDtoAsync(Appointments appt, TimeSpan startTime)
         {
             var patient = await _userRepository.GetUserByIdAsync(appt.PatientUserId);
             var doctor = await _userRepository.GetUserByIdAsync(appt.DoctorId);

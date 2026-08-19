@@ -3,6 +3,7 @@ using CuraDesk.Business.Interface.Service;
 using CuraDesk.Model.DTOs;
 using CuraDesk.Model.Entities;
 using System;
+using CuraDesk.Exceptions;
 using System.Collections.Generic;
 using System.Text;
 
@@ -43,12 +44,13 @@ namespace CuraDesk.Business.Services
         public async Task<MedicalReport?> GetReportForAccessCheckAsync(Guid requesterId, string requesterRole, Guid reportId)
         {
             var report = await _reportRepository.GetByIdAsync(reportId);
-            if (report == null) {  return null; }
-            if(requesterRole=="Patient" && requesterId!=report.PatientUserId) { return null; }
+            if (report == null) { throw new NotFoundException("Report not Found "); }
+            if(requesterRole=="Patient" && requesterId!=report.PatientUserId) { throw new NotFoundException("The User can't able to access the requested User's profile"); }
+           
             if(requesterRole=="Doctor")
             {
                 bool AlreadyAppointed = await _appointmentReposity.DoctorHasAppointmentWithPatientAsync(requesterId, report.PatientUserId);
-                if(AlreadyAppointed) { return null; }
+                if(!AlreadyAppointed) { throw new NotFoundException("Doctor has no appointment with this patient "); }
             }
             return report;
         }
@@ -56,7 +58,7 @@ namespace CuraDesk.Business.Services
         public async Task<List<MedicalReportResponseDto>?> GetPatientReportsForDoctorAsync(Guid doctorUserId, Guid patientUserId)
         {
             bool AlreadyAppointed = await _appointmentReposity.DoctorHasAppointmentWithPatientAsync(doctorUserId,patientUserId);
-            if (AlreadyAppointed) { return null; }
+            if (!AlreadyAppointed) { throw new NotFoundException("Doctor has no appointment with this patient "); }
             var reports = await _reportRepository.GetByPatientIdAsync(patientUserId, null, null);
             return reports.Select(MapToDto).ToList();
         }

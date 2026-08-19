@@ -2,6 +2,7 @@
   <Project Path="../CuraDesk.Business/CuraDesk.Business.csproj" />
   <Project Path="../CuraDesk.Data/CuraDesk.Data.csproj" />
   <Project Path="../CuraDesk.Model/CuraDesk.Model.csproj" />
+  <Project Path="../CuraDesk.Tests/CuraDesk.Tests.csproj" Id="b9060d35-9c66-4b6d-8967-7b34d1ead588" />
   <Project Path="../CuraDesk.Utility/CuraDesk.Utility.csproj" />
   <Project Path="CuraDesk.csproj" />
 </Solution>

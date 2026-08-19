@@ -10,7 +10,7 @@ namespace CuraDesk.Business.Interface.Service
         Task<DoctorProfileResponseDto?> CreateProfileAsync(Guid userId, CreateDoctorProfileDto dto);
         Task<DoctorProfileResponseDto?> GetProfileByUserIdAsync(Guid userId);
 
-        Task<List<DoctorProfileResponseDto?>> GetAllDoctorsAsync();
+        Task<List<DoctorProfileResponseDto>> GetAllDoctorsAsync();
         Task<DoctorProfileResponseDto?> UpdateProfileAsync(Guid userId, UpdateDoctorProfileDto dto);
     }
 }

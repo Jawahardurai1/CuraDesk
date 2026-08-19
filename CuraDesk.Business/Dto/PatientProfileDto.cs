@@ -1,19 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace CuraDesk.Business.Dto
 {
     public class CreatePatientProfileDto
     {
+        [Required]
+       
         public DateTime DateOfBirth { get; set; }
 
+        [Required]
         public string Gender { get; set; } = string.Empty;
+        [Required]
         public string BloodGroup { get; set; } = string.Empty;
+        [Required]
         public string Allergies { get; set; } = string.Empty;
+        [Required]
         public string ChronicConditions { get; set; } = string.Empty;
+        [Required]
         public string EmergencyContactName { get; set; } = string.Empty;
+        [Required]
+        [Phone]
         public string EmergencyContactPhone { get; set; } = string.Empty;
+        [Required]
         public string Address { get; set; } = string.Empty;
     }
 

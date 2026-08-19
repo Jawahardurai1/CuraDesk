@@ -5,8 +5,7 @@ using CuraDesk.Business.Services;
 using CuraDesk.Data.Context;
 using CuraDesk.Data.Repositories;
 using CuraDesk.Utility.Voice;
-using CuraDesk.Business.Interface.Service;
-using CuraDesk.Business.Services;
+using CuraDesk.Middleware;
 using CuraDesk.Utility.Email;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -124,6 +123,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+app.UseMiddleware<GlobalExceptionMiddleware>();
 
 app.UseHttpsRedirection();
 

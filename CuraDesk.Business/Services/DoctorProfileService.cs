@@ -1,6 +1,7 @@
 ﻿using CuraDesk.Business.Dto;
 using CuraDesk.Business.Interface.Repository;
 using CuraDesk.Business.Interface.Service;
+using CuraDesk.Exceptions;
 using CuraDesk.Model.Entities;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace CuraDesk.Business.Services
             var user = await _userRepository.GetUserByIdAsync(userId);
             Console.WriteLine("afetr 1 condition reaxhecx");
             if (user == null || user.Role != "Doctor")
-                return null;
+               throw new NotFoundException("User not Found or The unAuthorized for the Current User");
             Console.WriteLine("after 2 nd con reaxhecx");
 
 
@@ -44,7 +45,7 @@ namespace CuraDesk.Business.Services
             return await MapToDtoAsync(profile);
         }
 
-        public async Task<List<DoctorProfileResponseDto?>> GetAllDoctorsAsync()
+        public async Task<List<DoctorProfileResponseDto>> GetAllDoctorsAsync()
         {
             var profiles = await _repository.GetAllAsync();
 
@@ -58,7 +59,7 @@ namespace CuraDesk.Business.Services
         {
             var profile = await _repository.GetByUserIdAsync(userId);
             if (profile == null)
-                return null;
+                throw new NotFoundException("Profile not Found Exception");
 
             profile.Specialization = dto.Specialization;
             profile.Qualification = dto.Qualification;
@@ -72,13 +73,13 @@ namespace CuraDesk.Business.Services
         {
             var profile = await _repository.GetByUserIdAsync(userId);
 
-            if (profile == null)
-                return null;
+            if(profile == null)
+                throw new NotFoundException("Profile not Found Exception");
 
             return await MapToDtoAsync(profile);
         }
 
-        private async Task<DoctorProfileResponseDto?> MapToDtoAsync(DoctorProfile profile)
+        private async Task<DoctorProfileResponseDto> MapToDtoAsync(DoctorProfile profile)
         {
             var user = await _userRepository.GetUserByIdAsync(profile.UserId);
            

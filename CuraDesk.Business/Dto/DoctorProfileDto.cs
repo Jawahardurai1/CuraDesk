@@ -1,13 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace CuraDesk.Business.Dto
 {
     public class CreateDoctorProfileDto
     {
+        [Required]
         public string Specialization { get; set; } = string.Empty;
+
         public string Qualification { get; set; } = string.Empty;
+        [Required]
         public int YearsOfExperience { get; set; }
     }
     public class UpdateDoctorProfileDto : CreateDoctorProfileDto { }
