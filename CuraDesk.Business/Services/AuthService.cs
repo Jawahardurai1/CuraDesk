@@ -5,6 +5,7 @@ using CuraDesk.Business.Interface.Service;
 using CuraDesk.Exceptions;
 using CuraDesk.Utility.Email;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
@@ -21,18 +22,21 @@ namespace CuraDesk.Business.Services
         private readonly IUserRepository _userRepository;
         private readonly IConfiguration _config;
         private readonly IEmailService _emailService;
-
-        public AuthService(IUserRepository userRepository, IConfiguration config,IEmailService email)
+        private readonly ILogger<AuthService> _logger;
+        public AuthService(IUserRepository userRepository, IConfiguration config,IEmailService email,ILogger<AuthService> logger)
         {
             _userRepository = userRepository;
             _config = config;
             _emailService= email;
+            _logger = logger;
         }
         public async Task<AuthResponseDto?> LoginAsync(LoginDto dto)
         {
             var user = await _userRepository.GetUserByEmailIdAsync(dto.Email);
 
-            if (user == null) { throw new NotFoundException("User not found"); }
+            if (user == null) {
+                _logger.LogError("User Doesnt Found");
+                throw new NotFoundException("User not found"); }
            
 
             bool ValidatePassword = BCrypt.Net.BCrypt.Verify(dto.Password, user.PasswordHash);

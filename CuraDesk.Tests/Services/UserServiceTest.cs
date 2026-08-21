@@ -45,6 +45,9 @@ namespace CuraDesk.Tests.Services
     .Setup(x => x.CreateUserAsync(It.IsAny<User>()))
     .ReturnsAsync(createdUser);
             var result = await userService.AddUserAsync(UserDto);
+
+            Assert.NotNull(result);
+            Assert.Equal("John", result.FullName);
         }
 
     }

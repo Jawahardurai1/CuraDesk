@@ -7,6 +7,7 @@ using CuraDesk.Model.Entities;
 using CuraDesk.Model.Enums;
 using CuraDesk.Utility.Email;
 using CuraDesk.Utility.Voice;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Numerics;
@@ -21,6 +22,7 @@ namespace CuraDesk.Business.Services
         private readonly IUserRepository _userRepository;
         private readonly IPatientProfileRepository _patientProfileRepository;
         private readonly IEmailService _emailService;
+        private readonly ILogger<AppointmentService> _logger;
         private readonly IVoiceNotificationService _voiceNotificationService;
         public AppointmentService(
            IAppointmentRepository appointmentRepository,
@@ -28,10 +30,12 @@ namespace CuraDesk.Business.Services
            IEmailService emailService,
            IUserRepository userRepository,
            IVoiceNotificationService voiceNotificationService,
+           ILogger<AppointmentService>logger,
            IPatientProfileRepository patientProfileRepository)
         {
             _appointmentRepository = appointmentRepository;
             _availabilityRepository = availabilityRepository;
+            _logger = logger;
             _userRepository = userRepository;
             _voiceNotificationService = voiceNotificationService;
             _patientProfileRepository = patientProfileRepository;
@@ -41,12 +45,18 @@ namespace CuraDesk.Business.Services
         {
             var profile = await _patientProfileRepository.GetPatientProfileAsync(patientUserId);
             if (profile == null)
+            {
+                _logger.LogError("profile Not Available");
                 throw new NotFoundException($"Patient profile not found for UserId: {patientUserId}");
+            }
 
             var slot = await _availabilityRepository.GetByIdAsync(dto.AvailabilityId);
 
             if (slot == null)
+            {
+                _logger.LogError("Slot Not Available");
                 throw new NotFoundException($"Availability slot not found for ID: {dto.AvailabilityId}");
+            }
 
             if (slot.isBooked)
                 throw new AlreadyExistsException($"Availability slot {dto.AvailabilityId} is already booked");
@@ -59,6 +69,8 @@ namespace CuraDesk.Business.Services
                Status=AppointmentStatus.Requested,
                 Notes = dto.Notes
             };
+            _logger.LogInformation(
+        "Creation of new appointment with the datas");
 
             slot.isBooked = true;
             await _appointmentRepository.AddAsync(appointment);
@@ -92,7 +104,10 @@ namespace CuraDesk.Business.Services
             var appointment = await _appointmentRepository.GetByIdAsync(appointmentId);
 
             if (appointment == null)
+            {
+                _logger.LogError($"Appointment not found: {appointmentId}");
                 throw new NotFoundException($"Appointment not found: {appointmentId}");
+            }
 
             if (appointment.Status != AppointmentStatus.Requested)
                 throw new Exception(

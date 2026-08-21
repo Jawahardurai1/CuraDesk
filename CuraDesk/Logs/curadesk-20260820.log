@@ -1,0 +1,507 @@
+2026-08-20 14:26:28.088 +05:30 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-20 14:26:28.205 +05:30 [INF] Now listening on: http://localhost:5142
+2026-08-20 14:26:28.217 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-20 14:26:28.218 +05:30 [INF] Hosting environment: Development
+2026-08-20 14:26:28.218 +05:30 [INF] Content root path: E:\CuraDesk\Curadesk
+2026-08-20 14:26:54.259 +05:30 [INF] Application is shutting down...
+2026-08-20 14:27:18.012 +05:30 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-20 14:27:18.138 +05:30 [INF] Now listening on: http://localhost:5142
+2026-08-20 14:27:18.141 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-20 14:27:18.143 +05:30 [INF] Hosting environment: Development
+2026-08-20 14:27:18.144 +05:30 [INF] Content root path: E:\CuraDesk\Curadesk
+2026-08-20 14:27:51.750 +05:30 [INF] Application is shutting down...
+2026-08-20 14:27:57.231 +05:30 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-20 14:27:57.351 +05:30 [INF] Now listening on: http://localhost:5142
+2026-08-20 14:27:57.355 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-20 14:27:57.356 +05:30 [INF] Hosting environment: Development
+2026-08-20 14:27:57.357 +05:30 [INF] Content root path: E:\CuraDesk\Curadesk
+2026-08-20 14:28:02.325 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/index.html - null null
+2026-08-20 14:28:02.586 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/index.html - 304 null null 264.5472ms
+2026-08-20 14:28:02.633 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui.css - null null
+2026-08-20 14:28:02.633 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui-bundle.js - null null
+2026-08-20 14:28:02.633 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/index.css - null null
+2026-08-20 14:28:02.634 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui-standalone-preset.js - null null
+2026-08-20 14:28:02.635 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/index.js - null null
+2026-08-20 14:28:02.690 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui.css - 304 null null 57.6802ms
+2026-08-20 14:28:02.691 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui-bundle.js - 304 null null 58.715ms
+2026-08-20 14:28:02.693 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/index.css - 304 null null 59.8708ms
+2026-08-20 14:28:02.700 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui-standalone-preset.js - 304 null null 66.2719ms
+2026-08-20 14:28:02.704 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/index.js - 304 null null 68.1962ms
+2026-08-20 14:28:02.855 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/v1/swagger.json - null null
+2026-08-20 14:28:02.865 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/favicon-32x32.png - null null
+2026-08-20 14:28:02.948 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/favicon-32x32.png - 304 null null 82.9784ms
+2026-08-20 14:28:03.186 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 330.2986ms
+2026-08-20 14:28:14.479 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5142/api/Auth/Login - application/json 58
+2026-08-20 14:28:14.503 +05:30 [WRN] Failed to determine the https port for redirect.
+2026-08-20 14:28:16.817 +05:30 [INF] Executing endpoint 'CuraDesk.Controllers.AuthController.Login (CuraDesk)'
+2026-08-20 14:28:16.880 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CuraDesk.Business.Dto.LoginDto) on controller CuraDesk.Controllers.AuthController (CuraDesk).
+2026-08-20 14:28:22.188 +05:30 [INF] Executed DbCommand (311ms) [Parameters=[@Eid='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[EmailId] = @Eid
+2026-08-20 14:28:22.240 +05:30 [ERR] User Doesnt Found
+2026-08-20 14:28:22.262 +05:30 [INF] Executed action CuraDesk.Controllers.AuthController.Login (CuraDesk) in 5367.9272ms
+2026-08-20 14:28:22.268 +05:30 [INF] Executed endpoint 'CuraDesk.Controllers.AuthController.Login (CuraDesk)'
+2026-08-20 14:28:22.273 +05:30 [ERR] An unhandled exception occurred.
+CuraDesk.Exceptions.NotFoundException: User not found
+   at CuraDesk.Business.Services.AuthService.LoginAsync(LoginDto dto) in E:\CuraDesk\CuraDesk.Business\Services\AuthService.cs:line 39
+   at CuraDesk.Controllers.AuthController.Login(LoginDto dto) in E:\CuraDesk\Curadesk\Controllers\AuthController.cs:line 19
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at CuraDesk.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in E:\CuraDesk\Curadesk\Middleware\GlobalExceptionMiddleware.cs:line 20
+2026-08-20 14:28:22.400 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5142/api/Auth/Login - 404 null application/json; charset=utf-8 7921.3376ms
+2026-08-20 14:28:44.879 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5142/api/Auth/Login - application/json 57
+2026-08-20 14:28:44.898 +05:30 [INF] Executing endpoint 'CuraDesk.Controllers.AuthController.Login (CuraDesk)'
+2026-08-20 14:28:44.902 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CuraDesk.Business.Dto.LoginDto) on controller CuraDesk.Controllers.AuthController (CuraDesk).
+2026-08-20 14:28:45.006 +05:30 [INF] Executed DbCommand (28ms) [Parameters=[@Eid='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[EmailId] = @Eid
+2026-08-20 14:28:45.013 +05:30 [ERR] User Doesnt Found
+2026-08-20 14:28:45.017 +05:30 [INF] Executed action CuraDesk.Controllers.AuthController.Login (CuraDesk) in 109.2686ms
+2026-08-20 14:28:45.021 +05:30 [INF] Executed endpoint 'CuraDesk.Controllers.AuthController.Login (CuraDesk)'
+2026-08-20 14:28:45.023 +05:30 [ERR] An unhandled exception occurred.
+CuraDesk.Exceptions.NotFoundException: User not found
+   at CuraDesk.Business.Services.AuthService.LoginAsync(LoginDto dto) in E:\CuraDesk\CuraDesk.Business\Services\AuthService.cs:line 39
+   at CuraDesk.Controllers.AuthController.Login(LoginDto dto) in E:\CuraDesk\Curadesk\Controllers\AuthController.cs:line 19
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at CuraDesk.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in E:\CuraDesk\Curadesk\Middleware\GlobalExceptionMiddleware.cs:line 20
+2026-08-20 14:28:45.036 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5142/api/Auth/Login - 404 null application/json; charset=utf-8 156.3775ms
+2026-08-20 14:59:03.064 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/index.html - null null
+2026-08-20 14:59:03.103 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/index.html - 304 null null 39.8655ms
+2026-08-20 14:59:03.126 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui.css - null null
+2026-08-20 14:59:03.126 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/index.css - null null
+2026-08-20 14:59:03.129 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui-standalone-preset.js - null null
+2026-08-20 14:59:03.130 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui-bundle.js - null null
+2026-08-20 14:59:03.157 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui-bundle.js - 304 null null 27.6868ms
+2026-08-20 14:59:03.136 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui.css - 304 null null 9.634ms
+2026-08-20 14:59:03.143 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/index.css - 304 null null 16.2972ms
+2026-08-20 14:59:03.152 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui-standalone-preset.js - 304 null null 22.1156ms
+2026-08-20 14:59:03.130 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/index.js - null null
+2026-08-20 14:59:03.187 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/index.js - 304 null null 56.39ms
+2026-08-20 14:59:03.309 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/v1/swagger.json - null null
+2026-08-20 14:59:03.313 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/favicon-32x32.png - null null
+2026-08-20 14:59:03.333 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/favicon-32x32.png - 304 null null 19.3772ms
+2026-08-20 14:59:03.470 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 161.4373ms
+2026-08-20 15:06:47.936 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5142/api/Auth/Login - application/json 70
+2026-08-20 15:06:48.006 +05:30 [INF] Executing endpoint 'CuraDesk.Controllers.AuthController.Login (CuraDesk)'
+2026-08-20 15:06:48.017 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CuraDesk.Business.Dto.LoginDto) on controller CuraDesk.Controllers.AuthController (CuraDesk).
+2026-08-20 15:06:48.927 +05:30 [INF] Executed DbCommand (82ms) [Parameters=[@Eid='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[EmailId] = @Eid
+2026-08-20 15:06:50.295 +05:30 [INF] Executing OkObjectResult, writing value of type 'CuraDesk.Business.Dto.AuthResponseDto'.
+2026-08-20 15:06:50.352 +05:30 [INF] Executed action CuraDesk.Controllers.AuthController.Login (CuraDesk) in 2327.0132ms
+2026-08-20 15:06:50.355 +05:30 [INF] Executed endpoint 'CuraDesk.Controllers.AuthController.Login (CuraDesk)'
+2026-08-20 15:06:50.363 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5142/api/Auth/Login - 200 null application/json; charset=utf-8 2429.4013ms
+2026-08-20 15:14:27.236 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5142/api/User/register - application/json 119
+2026-08-20 15:14:27.562 +05:30 [INF] Failed to validate the token.
+System.ArgumentException: IDX14102: Unable to decode the header '[PII of type 'Microsoft.IdentityModel.Logging.SecurityArtifact' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]' as Base64Url encoded string.
+ ---> System.FormatException: IDX10400: Unable to decode: '[PII of type 'System.String' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]' as Base64url encoded string.
+   at Microsoft.IdentityModel.Tokens.Base64UrlEncoding.ValidateAndGetOutputSize(ReadOnlySpan`1 strSpan, Int32 offset, Int32 length)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.CreateClaimSet(ReadOnlySpan`1 strSpan, Int32 startIndex, Int32 length, Boolean createHeaderClaimSet)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.ReadToken(ReadOnlyMemory`1 encodedTokenMemory)
+   --- End of inner exception stack trace ---
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken.ReadToken(ReadOnlyMemory`1 encodedTokenMemory)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebToken..ctor(String jwtEncodedString, TryReadJwtClaim tryReadJwtClaim)
+   at Microsoft.IdentityModel.JsonWebTokens.JsonWebTokenHandler.ReadToken(String token, TokenValidationParameters validationParameters)
+2026-08-20 15:14:27.618 +05:30 [INF] Bearer was not authenticated. Failure message: IDX14102: Unable to decode the header '[PII of type 'Microsoft.IdentityModel.Logging.SecurityArtifact' is hidden. For more details, see https://aka.ms/IdentityModel/PII.]' as Base64Url encoded string.
+2026-08-20 15:14:27.695 +05:30 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2026-08-20 15:14:27.731 +05:30 [INF] AuthenticationScheme: Bearer was challenged.
+2026-08-20 15:14:27.737 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5142/api/User/register - 401 0 null 507.0282ms
+2026-08-20 15:15:01.950 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5142/api/Auth/Login - application/json 42
+2026-08-20 15:15:01.965 +05:30 [INF] Executing endpoint 'CuraDesk.Controllers.AuthController.Login (CuraDesk)'
+2026-08-20 15:15:01.994 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CuraDesk.Business.Dto.LoginDto) on controller CuraDesk.Controllers.AuthController (CuraDesk).
+2026-08-20 15:15:02.089 +05:30 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-08-20 15:15:02.276 +05:30 [INF] Executed action CuraDesk.Controllers.AuthController.Login (CuraDesk) in 276.0373ms
+2026-08-20 15:15:02.281 +05:30 [INF] Executed endpoint 'CuraDesk.Controllers.AuthController.Login (CuraDesk)'
+2026-08-20 15:15:02.284 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5142/api/Auth/Login - 400 null application/problem+json; charset=utf-8 333.9222ms
+2026-08-20 15:16:15.630 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5142/api/Auth/Login - application/json 63
+2026-08-20 15:16:15.635 +05:30 [INF] Executing endpoint 'CuraDesk.Controllers.AuthController.Login (CuraDesk)'
+2026-08-20 15:16:15.638 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CuraDesk.Business.Dto.LoginDto) on controller CuraDesk.Controllers.AuthController (CuraDesk).
+2026-08-20 15:16:15.778 +05:30 [INF] Executed DbCommand (34ms) [Parameters=[@Eid='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[EmailId] = @Eid
+2026-08-20 15:16:16.289 +05:30 [INF] Executing OkObjectResult, writing value of type 'CuraDesk.Business.Dto.AuthResponseDto'.
+2026-08-20 15:16:16.295 +05:30 [INF] Executed action CuraDesk.Controllers.AuthController.Login (CuraDesk) in 653.3013ms
+2026-08-20 15:16:16.299 +05:30 [INF] Executed endpoint 'CuraDesk.Controllers.AuthController.Login (CuraDesk)'
+2026-08-20 15:16:16.323 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5142/api/Auth/Login - 200 null application/json; charset=utf-8 692.9435ms
+2026-08-20 15:16:41.168 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/api/Doctor - null null
+2026-08-20 15:16:41.322 +05:30 [INF] Executing endpoint 'CuraDesk.Controllers.DoctorController.GetAllDoc (CuraDesk)'
+2026-08-20 15:16:41.384 +05:30 [INF] Route matched with {action = "GetAllDoc", controller = "Doctor"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAllDoc() on controller CuraDesk.Controllers.DoctorController (CuraDesk).
+2026-08-20 15:16:41.558 +05:30 [INF] Executed DbCommand (20ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[DoctorProfileId], [d].[Qualification], [d].[Specialization], [d].[UserId], [d].[YearsOfExperience]
+FROM [DoctorProfiles] AS [d]
+2026-08-20 15:16:41.665 +05:30 [INF] Executed DbCommand (14ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:16:41.743 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:16:41.753 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:16:41.761 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CuraDesk.Business.Dto.DoctorProfileResponseDto, CuraDesk.Business, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-20 15:16:41.780 +05:30 [INF] Executed action CuraDesk.Controllers.DoctorController.GetAllDoc (CuraDesk) in 392.5718ms
+2026-08-20 15:16:41.784 +05:30 [INF] Executed endpoint 'CuraDesk.Controllers.DoctorController.GetAllDoc (CuraDesk)'
+2026-08-20 15:16:41.788 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/api/Doctor - 200 null application/json; charset=utf-8 619.7179ms
+2026-08-20 15:19:58.623 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/api/DoctorAvailability/90f70183-6c68-4425-a281-5cbc6f23ddd6/availability - null null
+2026-08-20 15:19:58.672 +05:30 [INF] Executing endpoint 'CuraDesk.Controllers.DoctorAvailabilityController.GetDoctorAvailability (CuraDesk)'
+2026-08-20 15:19:58.747 +05:30 [INF] Route matched with {action = "GetDoctorAvailability", controller = "DoctorAvailability"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDoctorAvailability(System.Guid) on controller CuraDesk.Controllers.DoctorAvailabilityController (CuraDesk).
+2026-08-20 15:19:59.041 +05:30 [INF] Executed DbCommand (52ms) [Parameters=[@doctorUserId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [d].[DoctorAvailabilityId], [d].[AvailableDate], [d].[DoctorUserId], [d].[EndTime], [d].[StartTime], [d].[isBooked]
+FROM [DoctorAvailability] AS [d]
+WHERE [d].[DoctorUserId] = @doctorUserId AND [d].[isBooked] = CAST(0 AS bit)
+ORDER BY [d].[AvailableDate], [d].[StartTime]
+2026-08-20 15:19:59.143 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:19:59.171 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CuraDesk.Business.Dto.AvailabilityResponseDto, CuraDesk.Business, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-20 15:19:59.228 +05:30 [INF] Executed action CuraDesk.Controllers.DoctorAvailabilityController.GetDoctorAvailability (CuraDesk) in 475.4323ms
+2026-08-20 15:19:59.232 +05:30 [INF] Executed endpoint 'CuraDesk.Controllers.DoctorAvailabilityController.GetDoctorAvailability (CuraDesk)'
+2026-08-20 15:19:59.235 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/api/DoctorAvailability/90f70183-6c68-4425-a281-5cbc6f23ddd6/availability - 200 null application/json; charset=utf-8 612.5304ms
+2026-08-20 15:25:49.841 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5142/api/Auth/Login - application/json 56
+2026-08-20 15:25:49.884 +05:30 [INF] Executing endpoint 'CuraDesk.Controllers.AuthController.Login (CuraDesk)'
+2026-08-20 15:25:49.909 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CuraDesk.Business.Dto.LoginDto) on controller CuraDesk.Controllers.AuthController (CuraDesk).
+2026-08-20 15:25:50.011 +05:30 [INF] Executed DbCommand (18ms) [Parameters=[@Eid='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[EmailId] = @Eid
+2026-08-20 15:25:50.409 +05:30 [INF] Executing OkObjectResult, writing value of type 'CuraDesk.Business.Dto.AuthResponseDto'.
+2026-08-20 15:25:50.431 +05:30 [INF] Executed action CuraDesk.Controllers.AuthController.Login (CuraDesk) in 490.3882ms
+2026-08-20 15:25:50.435 +05:30 [INF] Executed endpoint 'CuraDesk.Controllers.AuthController.Login (CuraDesk)'
+2026-08-20 15:25:50.439 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5142/api/Auth/Login - 200 null application/json; charset=utf-8 598.3214ms
+2026-08-20 15:26:43.034 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/api/Appointment/doctor - null null
+2026-08-20 15:26:43.083 +05:30 [INF] Executing endpoint 'CuraDesk.Controllers.AppointmentController.GetDoctorAppointments (CuraDesk)'
+2026-08-20 15:26:43.099 +05:30 [INF] Route matched with {action = "GetDoctorAppointments", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetDoctorAppointments() on controller CuraDesk.Controllers.AppointmentController (CuraDesk).
+2026-08-20 15:26:43.221 +05:30 [INF] Executed DbCommand (24ms) [Parameters=[@doctorUserId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[AppointmentId], [a].[AppointmentDate], [a].[AvailabilityId], [a].[CreatedAt], [a].[DoctorId], [a].[Notes], [a].[PatientUserId], [a].[Status], [a].[UpdatedAt]
+FROM [Appointments] AS [a]
+WHERE [a].[DoctorId] = @doctorUserId
+ORDER BY [a].[AppointmentDate] DESC
+2026-08-20 15:26:43.463 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[DoctorAvailabilityId], [d].[AvailableDate], [d].[DoctorUserId], [d].[EndTime], [d].[StartTime], [d].[isBooked]
+FROM [DoctorAvailability] AS [d]
+WHERE [d].[DoctorAvailabilityId] = @p
+2026-08-20 15:26:43.493 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:26:43.520 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:26:43.544 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[DoctorAvailabilityId], [d].[AvailableDate], [d].[DoctorUserId], [d].[EndTime], [d].[StartTime], [d].[isBooked]
+FROM [DoctorAvailability] AS [d]
+WHERE [d].[DoctorAvailabilityId] = @p
+2026-08-20 15:26:43.558 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:26:43.572 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:26:43.583 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[DoctorAvailabilityId], [d].[AvailableDate], [d].[DoctorUserId], [d].[EndTime], [d].[StartTime], [d].[isBooked]
+FROM [DoctorAvailability] AS [d]
+WHERE [d].[DoctorAvailabilityId] = @p
+2026-08-20 15:26:43.608 +05:30 [INF] Executed DbCommand (6ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:26:43.621 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:26:43.634 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[DoctorAvailabilityId], [d].[AvailableDate], [d].[DoctorUserId], [d].[EndTime], [d].[StartTime], [d].[isBooked]
+FROM [DoctorAvailability] AS [d]
+WHERE [d].[DoctorAvailabilityId] = @p
+2026-08-20 15:26:43.647 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:26:43.658 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:26:43.669 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[DoctorAvailabilityId], [d].[AvailableDate], [d].[DoctorUserId], [d].[EndTime], [d].[StartTime], [d].[isBooked]
+FROM [DoctorAvailability] AS [d]
+WHERE [d].[DoctorAvailabilityId] = @p
+2026-08-20 15:26:43.683 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:26:43.700 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:26:43.716 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[DoctorAvailabilityId], [d].[AvailableDate], [d].[DoctorUserId], [d].[EndTime], [d].[StartTime], [d].[isBooked]
+FROM [DoctorAvailability] AS [d]
+WHERE [d].[DoctorAvailabilityId] = @p
+2026-08-20 15:26:43.735 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:26:43.758 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:26:43.772 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CuraDesk.Business.Dto.AppointmentResponseDto, CuraDesk.Business, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-20 15:26:43.798 +05:30 [INF] Executed action CuraDesk.Controllers.AppointmentController.GetDoctorAppointments (CuraDesk) in 692.7753ms
+2026-08-20 15:26:43.803 +05:30 [INF] Executed endpoint 'CuraDesk.Controllers.AppointmentController.GetDoctorAppointments (CuraDesk)'
+2026-08-20 15:26:43.808 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/api/Appointment/doctor - 200 null application/json; charset=utf-8 774.3195ms
+2026-08-20 15:27:07.107 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/api/MedicalReport/patient/f03cecf3-8491-4005-a70f-f27ff1a18447 - null null
+2026-08-20 15:27:07.119 +05:30 [INF] Executing endpoint 'CuraDesk.Controllers.MedicalReportController.GetPatientReports (CuraDesk)'
+2026-08-20 15:27:07.146 +05:30 [INF] Route matched with {action = "GetPatientReports", controller = "MedicalReport"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetPatientReports(System.Guid) on controller CuraDesk.Controllers.MedicalReportController (CuraDesk).
+2026-08-20 15:27:07.934 +05:30 [INF] Executed DbCommand (32ms) [Parameters=[@doctorUserId='?' (DbType = Guid), @patientUserId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Appointments] AS [a]
+        WHERE [a].[DoctorId] = @doctorUserId AND [a].[PatientUserId] = @patientUserId) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2026-08-20 15:27:07.995 +05:30 [INF] Executed DbCommand (16ms) [Parameters=[@patientUserId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [m].[MReportId], [m].[AppointmentId], [m].[DiagnosisTag], [m].[FileName], [m].[FilePath], [m].[PatientUserId], [m].[ReportDate], [m].[UploadedAt]
+FROM [MedicalReports] AS [m]
+WHERE [m].[PatientUserId] = @patientUserId
+ORDER BY [m].[UploadedAt] DESC
+2026-08-20 15:27:08.066 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CuraDesk.Model.DTOs.MedicalReportResponseDto, CuraDesk.Business, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-20 15:27:08.079 +05:30 [INF] Executed action CuraDesk.Controllers.MedicalReportController.GetPatientReports (CuraDesk) in 928.7649ms
+2026-08-20 15:27:08.082 +05:30 [INF] Executed endpoint 'CuraDesk.Controllers.MedicalReportController.GetPatientReports (CuraDesk)'
+2026-08-20 15:27:08.085 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/api/MedicalReport/patient/f03cecf3-8491-4005-a70f-f27ff1a18447 - 200 null application/json; charset=utf-8 978.4076ms
+2026-08-20 15:28:25.133 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5142/api/Auth/Login - application/json 63
+2026-08-20 15:28:25.170 +05:30 [INF] Executing endpoint 'CuraDesk.Controllers.AuthController.Login (CuraDesk)'
+2026-08-20 15:28:25.180 +05:30 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(CuraDesk.Business.Dto.LoginDto) on controller CuraDesk.Controllers.AuthController (CuraDesk).
+2026-08-20 15:28:25.209 +05:30 [INF] Executed DbCommand (15ms) [Parameters=[@Eid='?' (Size = 450)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[EmailId] = @Eid
+2026-08-20 15:28:25.603 +05:30 [INF] Executing OkObjectResult, writing value of type 'CuraDesk.Business.Dto.AuthResponseDto'.
+2026-08-20 15:28:25.610 +05:30 [INF] Executed action CuraDesk.Controllers.AuthController.Login (CuraDesk) in 426.0842ms
+2026-08-20 15:28:25.614 +05:30 [INF] Executed endpoint 'CuraDesk.Controllers.AuthController.Login (CuraDesk)'
+2026-08-20 15:28:25.617 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5142/api/Auth/Login - 200 null application/json; charset=utf-8 483.287ms
+2026-08-20 15:28:59.721 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5142/api/MedicalReport - multipart/form-data; boundary=----WebKitFormBoundaryhzf28finxu47IfeL 210606
+2026-08-20 15:28:59.769 +05:30 [INF] Executing endpoint 'CuraDesk.Controllers.MedicalReportController.Upload (CuraDesk)'
+2026-08-20 15:28:59.806 +05:30 [INF] Route matched with {action = "Upload", controller = "MedicalReport"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Upload(CuraDesk.Model.DTOs.UploadReportMetadataDto) on controller CuraDesk.Controllers.MedicalReportController (CuraDesk).
+2026-08-20 15:29:04.399 +05:30 [ERR] Failed executing DbCommand (114ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Guid), @p6='?' (DbType = DateTime2), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [MedicalReports] ([MReportId], [AppointmentId], [DiagnosisTag], [FileName], [FilePath], [PatientUserId], [ReportDate], [UploadedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2026-08-20 15:29:04.563 +05:30 [ERR] An exception occurred in the database while saving changes for context type 'CuraDesk.Data.Context.AppDbContext'.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_MedicalReports_Appointments_AppointmentId". The conflict occurred in database "MedCareDb", table "dbo.Appointments", column 'AppointmentId'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:31176b22-df30-4a9d-93f9-e6a911330766
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_MedicalReports_Appointments_AppointmentId". The conflict occurred in database "MedCareDb", table "dbo.Appointments", column 'AppointmentId'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:31176b22-df30-4a9d-93f9-e6a911330766
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+2026-08-20 15:29:04.587 +05:30 [INF] Executed action CuraDesk.Controllers.MedicalReportController.Upload (CuraDesk) in 4773.2724ms
+2026-08-20 15:29:04.594 +05:30 [INF] Executed endpoint 'CuraDesk.Controllers.MedicalReportController.Upload (CuraDesk)'
+2026-08-20 15:29:04.620 +05:30 [ERR] An unhandled exception occurred.
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_MedicalReports_Appointments_AppointmentId". The conflict occurred in database "MedCareDb", table "dbo.Appointments", column 'AppointmentId'.
+The statement has been terminated.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__195_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:31176b22-df30-4a9d-93f9-e6a911330766
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabase.SaveChangesAsync(IList`1 entries, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at CuraDesk.Data.Repositories.MedicalReportRepository.SaveChangesAsync() in E:\CuraDesk\CuraDesk.Data\Repositories\MedicalReportRepository.cs:line 39
+   at CuraDesk.Business.Services.MedicalReportService.UploadReportAsync(Guid patientUserId, String fileName, String fileUrl, UploadReportMetadataDto dto) in E:\CuraDesk\CuraDesk.Business\Services\MedicalReportService.cs:line 33
+   at CuraDesk.Controllers.MedicalReportController.Upload(UploadReportMetadataDto dto) in E:\CuraDesk\Curadesk\Controllers\MedicalReportController.cs:line 39
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at CuraDesk.Middleware.GlobalExceptionMiddleware.InvokeAsync(HttpContext context) in E:\CuraDesk\Curadesk\Middleware\GlobalExceptionMiddleware.cs:line 20
+2026-08-20 15:29:04.779 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5142/api/MedicalReport - 500 null application/json; charset=utf-8 5057.6733ms
+2026-08-20 15:29:19.408 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/api/Appointment/me - null null
+2026-08-20 15:29:19.447 +05:30 [INF] Executing endpoint 'CuraDesk.Controllers.AppointmentController.GetMyAppointments (CuraDesk)'
+2026-08-20 15:29:19.476 +05:30 [INF] Route matched with {action = "GetMyAppointments", controller = "Appointment"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetMyAppointments() on controller CuraDesk.Controllers.AppointmentController (CuraDesk).
+2026-08-20 15:29:19.526 +05:30 [INF] Executed DbCommand (12ms) [Parameters=[@patientUserId='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [a].[AppointmentId], [a].[AppointmentDate], [a].[AvailabilityId], [a].[CreatedAt], [a].[DoctorId], [a].[Notes], [a].[PatientUserId], [a].[Status], [a].[UpdatedAt]
+FROM [Appointments] AS [a]
+WHERE [a].[PatientUserId] = @patientUserId
+ORDER BY [a].[AppointmentDate] DESC
+2026-08-20 15:29:19.545 +05:30 [INF] Executed DbCommand (4ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[DoctorAvailabilityId], [d].[AvailableDate], [d].[DoctorUserId], [d].[EndTime], [d].[StartTime], [d].[isBooked]
+FROM [DoctorAvailability] AS [d]
+WHERE [d].[DoctorAvailabilityId] = @p
+2026-08-20 15:29:19.561 +05:30 [INF] Executed DbCommand (5ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:29:19.576 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:29:19.593 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[DoctorAvailabilityId], [d].[AvailableDate], [d].[DoctorUserId], [d].[EndTime], [d].[StartTime], [d].[isBooked]
+FROM [DoctorAvailability] AS [d]
+WHERE [d].[DoctorAvailabilityId] = @p
+2026-08-20 15:29:19.605 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:29:19.617 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:29:19.643 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[DoctorAvailabilityId], [d].[AvailableDate], [d].[DoctorUserId], [d].[EndTime], [d].[StartTime], [d].[isBooked]
+FROM [DoctorAvailability] AS [d]
+WHERE [d].[DoctorAvailabilityId] = @p
+2026-08-20 15:29:19.696 +05:30 [INF] Executed DbCommand (8ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:29:19.707 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:29:19.720 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[DoctorAvailabilityId], [d].[AvailableDate], [d].[DoctorUserId], [d].[EndTime], [d].[StartTime], [d].[isBooked]
+FROM [DoctorAvailability] AS [d]
+WHERE [d].[DoctorAvailabilityId] = @p
+2026-08-20 15:29:19.732 +05:30 [INF] Executed DbCommand (1ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:29:19.745 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:29:19.765 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@p='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [d].[DoctorAvailabilityId], [d].[AvailableDate], [d].[DoctorUserId], [d].[EndTime], [d].[StartTime], [d].[isBooked]
+FROM [DoctorAvailability] AS [d]
+WHERE [d].[DoctorAvailabilityId] = @p
+2026-08-20 15:29:19.783 +05:30 [INF] Executed DbCommand (3ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:29:19.800 +05:30 [INF] Executed DbCommand (2ms) [Parameters=[@Id='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[UserId], [u].[CreatedAt], [u].[EmailId], [u].[PasswordHash], [u].[PhoneNumber], [u].[Role], [u].[UserName], [u].[isFirstLogin]
+FROM [Users] AS [u]
+WHERE [u].[UserId] = @Id
+2026-08-20 15:29:19.809 +05:30 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[CuraDesk.Business.Dto.AppointmentResponseDto, CuraDesk.Business, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2026-08-20 15:29:19.818 +05:30 [INF] Executed action CuraDesk.Controllers.AppointmentController.GetMyAppointments (CuraDesk) in 334.0463ms
+2026-08-20 15:29:19.826 +05:30 [INF] Executed endpoint 'CuraDesk.Controllers.AppointmentController.GetMyAppointments (CuraDesk)'
+2026-08-20 15:29:19.836 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/api/Appointment/me - 200 null application/json; charset=utf-8 427.8513ms
+2026-08-20 15:29:42.793 +05:30 [INF] Request starting HTTP/1.1 POST http://localhost:5142/api/MedicalReport - multipart/form-data; boundary=----WebKitFormBoundaryFM3kLD7O6ttAKchm 210606
+2026-08-20 15:29:42.802 +05:30 [INF] Executing endpoint 'CuraDesk.Controllers.MedicalReportController.Upload (CuraDesk)'
+2026-08-20 15:29:42.811 +05:30 [INF] Route matched with {action = "Upload", controller = "MedicalReport"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Upload(CuraDesk.Model.DTOs.UploadReportMetadataDto) on controller CuraDesk.Controllers.MedicalReportController (CuraDesk).
+2026-08-20 15:29:45.040 +05:30 [INF] Executed DbCommand (17ms) [Parameters=[@p0='?' (DbType = Guid), @p1='?' (DbType = Guid), @p2='?' (Size = 4000), @p3='?' (Size = 4000), @p4='?' (Size = 4000), @p5='?' (DbType = Guid), @p6='?' (DbType = DateTime2), @p7='?' (DbType = DateTime2)], CommandType='"Text"', CommandTimeout='30']
+SET IMPLICIT_TRANSACTIONS OFF;
+SET NOCOUNT ON;
+INSERT INTO [MedicalReports] ([MReportId], [AppointmentId], [DiagnosisTag], [FileName], [FilePath], [PatientUserId], [ReportDate], [UploadedAt])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+2026-08-20 15:29:45.066 +05:30 [INF] Executing ObjectResult, writing value of type 'CuraDesk.Model.DTOs.MedicalReportResponseDto'.
+2026-08-20 15:29:45.073 +05:30 [INF] Executed action CuraDesk.Controllers.MedicalReportController.Upload (CuraDesk) in 2258.2204ms
+2026-08-20 15:29:45.079 +05:30 [INF] Executed endpoint 'CuraDesk.Controllers.MedicalReportController.Upload (CuraDesk)'
+2026-08-20 15:29:45.083 +05:30 [INF] Request finished HTTP/1.1 POST http://localhost:5142/api/MedicalReport - 201 null application/json; charset=utf-8 2290.1699ms
