@@ -1,0 +1,46 @@
+2026-08-21 10:10:24.021 +05:30 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-21 10:10:24.116 +05:30 [INF] Now listening on: http://localhost:5142
+2026-08-21 10:10:24.121 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-21 10:10:24.123 +05:30 [INF] Hosting environment: Development
+2026-08-21 10:10:24.125 +05:30 [INF] Content root path: E:\CuraDesk\Curadesk
+2026-08-21 10:10:45.132 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/index.html - null null
+2026-08-21 10:10:45.479 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/index.html - 304 null null 351.3632ms
+2026-08-21 10:10:45.510 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/index.css - null null
+2026-08-21 10:10:45.510 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui-standalone-preset.js - null null
+2026-08-21 10:10:45.508 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui.css - null null
+2026-08-21 10:10:45.511 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/index.js - null null
+2026-08-21 10:10:45.553 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui-bundle.js - null null
+2026-08-21 10:10:45.591 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/index.js - 304 null null 77.0112ms
+2026-08-21 10:10:45.648 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/index.css - 304 null null 138.2648ms
+2026-08-21 10:10:45.649 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui-standalone-preset.js - 304 null null 138.3809ms
+2026-08-21 10:10:45.650 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui.css - 304 null null 143.2997ms
+2026-08-21 10:10:45.654 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui-bundle.js - 304 null null 100.4413ms
+2026-08-21 10:10:45.877 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/v1/swagger.json - null null
+2026-08-21 10:10:45.877 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/favicon-32x32.png - null null
+2026-08-21 10:10:45.911 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/favicon-32x32.png - 304 null null 33.7462ms
+2026-08-21 10:10:46.241 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 363.9077ms
+2026-08-21 10:52:04.087 +05:30 [WRN] As of ""2026-08-21T05:22:03.4563338+00:00"", the heartbeat has been running for ""00:00:01.1518834"" which is longer than ""00:00:01"". This could be caused by thread pool starvation.
+2026-08-21 11:08:02.729 +05:30 [INF] Application is shutting down...
+2026-08-21 11:09:48.331 +05:30 [INF] User profile is available. Using 'C:\Users\HP\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-08-21 11:09:48.523 +05:30 [INF] Now listening on: http://localhost:5142
+2026-08-21 11:09:48.536 +05:30 [INF] Application started. Press Ctrl+C to shut down.
+2026-08-21 11:09:48.542 +05:30 [INF] Hosting environment: Development
+2026-08-21 11:09:48.544 +05:30 [INF] Content root path: E:\CuraDesk\Curadesk
+2026-08-21 11:10:56.780 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/v1/swagger.json - null null
+2026-08-21 11:10:57.384 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 607.3035ms
+2026-08-21 11:11:08.085 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/index.html - null null
+2026-08-21 11:11:08.325 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/index.html - 304 null null 240.8214ms
+2026-08-21 11:11:08.353 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/index.css - null null
+2026-08-21 11:11:08.354 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui-standalone-preset.js - null null
+2026-08-21 11:11:08.354 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui-bundle.js - null null
+2026-08-21 11:11:08.355 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/index.js - null null
+2026-08-21 11:11:08.362 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui.css - null null
+2026-08-21 11:11:08.553 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui-standalone-preset.js - 304 null null 198.6773ms
+2026-08-21 11:11:08.554 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/index.css - 304 null null 201.4589ms
+2026-08-21 11:11:08.559 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui-bundle.js - 304 null null 204.6287ms
+2026-08-21 11:11:08.568 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/index.js - 304 null null 213.3741ms
+2026-08-21 11:11:08.600 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/swagger-ui.css - 304 null null 237.1983ms
+2026-08-21 11:11:08.792 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/favicon-32x32.png - null null
+2026-08-21 11:11:08.899 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/favicon-32x32.png - 304 null null 107.5681ms
+2026-08-21 11:11:08.891 +05:30 [INF] Request starting HTTP/1.1 GET http://localhost:5142/swagger/v1/swagger.json - null null
+2026-08-21 11:11:09.016 +05:30 [INF] Request finished HTTP/1.1 GET http://localhost:5142/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 125.1706ms
